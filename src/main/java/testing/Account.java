@@ -6,4 +6,7 @@ public class Account {
     public Account(boolean active) {
         this.active = active;
     }
+    boolean isActive(){
+        return this.active;
+    }
 }
