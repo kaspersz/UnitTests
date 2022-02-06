@@ -1,9 +1,9 @@
 package testing;
 
-import static org.hamcrest.MatcherAssert.assertThat;
+
 import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.Matchers.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AccountTest {
@@ -24,8 +24,8 @@ class AccountTest {
         account.activate();
         //then
        // assertTrue(account.isActive());
-        assertThat(account.isActive(), equalTo(true));
-        assertThat(account.isActive(), is(true));
+      //  assertThat(account.isActive(), equalTo(true));
+       // assertThat(account.isActive(), is(true));
     }
     @Test
     void checkIfAddressIsNotSetRightAfterAccountCreation(){
@@ -45,7 +45,7 @@ class AccountTest {
         //when
         Address address1 = account1.getDefaultDeliveryAddress();
         //then
-        //assertNotNull(address1);
-        assertThat(address1, is(notNullValue()));
+        assertNotNull(address1);
+       // assertThat(address1, is(notNullValue()));
     }
 }
