@@ -1,14 +1,17 @@
 package testing;
 
 public class Account {
-    private boolean active;
+    private boolean active = false;
+
+    public Account() {
+    }
 
     public Account(boolean active) {
         this.active = active;
     }
 
     public void activate(){
-        this.active = active;
+        this.active = true;
     }
 
     public boolean isActive(){
