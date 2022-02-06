@@ -1,5 +1,6 @@
 package testing;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,8 +15,13 @@ class OrderTest {
     private Order order;
     @BeforeEach
     void initializeOrder(){
+        System.out.println(order);
         order = new Order();
-
+    }
+    @AfterEach
+    void cancelCretingOrder(){
+        order = null;
+        System.out.println("I am setting order to null");
     }
 
     @Test
