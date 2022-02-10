@@ -1,9 +1,6 @@
 package testing;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.io.IOException;
 
@@ -18,11 +15,11 @@ class OrderBackupTest {
         orderBackup = new OrderBackup();
         orderBackup.createFile();
     }
-
-    @AfterAll
-    static void TearDown() throws IOException {
-        orderBackup.closeFile();
+    @BeforeEach
+    void addStringToOrder() throws IOException {
+        orderBackup.getFileWriter().append("New Order");
     }
+
     @Test
     void checkIfFileIsWritten () throws IOException {
         //given
@@ -34,5 +31,14 @@ class OrderBackupTest {
         //then
         System.out.println("Order" + order.toString() + " backed up");
 
+    }
+    @AfterEach
+    void addStringToTheEndOfOrder() throws IOException {
+        orderBackup.getFileWriter().append("added");
+    }
+
+    @AfterAll
+    static void TearDown() throws IOException {
+        orderBackup.closeFile();
     }
 }

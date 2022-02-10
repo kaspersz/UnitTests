@@ -24,4 +24,8 @@ public class OrderBackup {
     void closeFile() throws IOException {
         fileWriter.close();
     }
+
+    public FileWriter getFileWriter() {
+        return fileWriter;
+    }
 }

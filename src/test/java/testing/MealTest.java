@@ -1,8 +1,12 @@
 package testing;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.assertThat;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MealTest {
@@ -15,7 +19,7 @@ class MealTest {
         int afterDiscount = meal.getDiscountedPrice(10);
         //then
         //assertEquals(25, afterDiscount);
-        assertThat(afterDiscount).isEqualTo(25); // this is assertJ
+        assertThat(afterDiscount, equalTo(25)); //
     }
     @Test
     void shouldReturnEqualObjects(){
@@ -24,7 +28,7 @@ class MealTest {
         Meal meal2 = meal1;
         //then
         assertSame(meal1, meal2);
-        assertThat(meal1).isSameAs(meal2);
+        assertThat(meal1,sameInstance(meal2));
         //assertThat(meal1, sameInstance(meal2)); //this is Hamcrest
     }
     @Test
@@ -41,5 +45,12 @@ class MealTest {
         Meal meal = new Meal(50, "PIZZA");
         assertThrows(IllegalArgumentException.class, () -> meal.getDiscountedPrice(60));
 
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {5,10,15,20})
+    void mealPricesShouldBeLowerThan60(int price){
+
+        assertThat(price, lessThan(60));
     }
 }

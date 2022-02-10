@@ -7,8 +7,13 @@ public class Account {
     public Account() {
     }
     public Account(Address address) {
-        defaultDeliveryAddress = address;
+        this.defaultDeliveryAddress = address;
+        if(address != null ){
+            activate();
+        }
+        else this.active = false;
     }
+
     public Account(boolean active) {
         this.active = active;
     }
