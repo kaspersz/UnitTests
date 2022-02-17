@@ -60,4 +60,6 @@ public class Meal {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+
 }

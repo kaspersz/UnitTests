@@ -1,8 +1,10 @@
-package testing;
+package testing.order;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import testing.Meal;
+import testing.order.Order;
 
 import java.util.ArrayList;
 import java.util.Arrays;

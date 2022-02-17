@@ -1,10 +1,11 @@
-package testing;
+package testing.order;
 
 import org.junit.jupiter.api.*;
+import testing.Meal;
+import testing.order.Order;
+import testing.order.OrderBackup;
 
 import java.io.IOException;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class OrderBackupTest {
 

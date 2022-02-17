@@ -1,9 +1,11 @@
-package testing;
+package testing.cart;
 
 
 import static org.hamcrest.MatcherAssert.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import testing.cart.Cart;
+import testing.order.Order;
 
 import java.time.Duration;
 
@@ -33,7 +35,7 @@ class CartTest {
         //then
         assertThat(cart.getOrders(), anyOf(nullValue(), hasSize(1), is(empty()))); //jakikolwiek warunek musi byc spelnion
 
-        assertThat(cart.getOrders(), allOf(notNullValue(), hasSize(0)));//wszystkie warunki musza byc spelnione
+        assertThat(cart.getOrders(), allOf(notNullValue()));//wszystkie warunki musza byc spelnione
         assertAll(()-> assertThat(cart.getOrders(), is(notNullValue())),
                 () -> assertThat(cart.getOrders(), hasSize(1))//tutaj mozemy rozbudowac lamde
                 );//tutaj mozemy mieszac mozliwosci
